@@ -3,7 +3,12 @@
 A machine learning web application built with **Streamlit** that predicts whether a patient is at risk of heart disease using the **UCI Heart Disease Dataset** and a **Decision Tree Classifier**.
 
 ---
-##  STREAMLINK: //4mtw4sahcs5onmma7mztux.streamlit.app/
+## 🌐 Live Demo
+
+👉 https://4mtw4sahcs5onmma7mztux.streamlit.app/
+
+Run the app directly in your browser without installation.
+
 ## 🚀 Features
 
 * 🤖 Decision Tree Classifier with tuned hyperparameters
