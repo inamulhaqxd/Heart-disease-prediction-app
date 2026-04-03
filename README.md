@@ -1,41 +1,28 @@
-\documentclass[11pt]{article}
+# 🫀 Heart Disease Prediction App
 
-\usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{graphicx}
-\usepackage{titlesec}
+A machine learning web application built with **Streamlit** that predicts whether a patient is at risk of heart disease using the **UCI Heart Disease Dataset** and a **Decision Tree Classifier**.
 
-\title{\textbf{Heart Disease Prediction App}}
-\author{Your Name}
-\date{}
+---
 
-\begin{document}
+## 🚀 Features
 
-\maketitle
+* 🤖 Decision Tree Classifier with tuned hyperparameters
+* 📥 Automatic dataset download using `ucimlrepo` (no Kaggle required)
+* 🧾 Interactive patient input form (13 medical features)
+* 📊 Exploratory Data Analysis (EDA) dashboard:
 
-\section*{Overview}
-A machine learning web application built with \textbf{Streamlit} that predicts whether a patient is \textbf{at risk of heart disease} using the \textbf{UCI Heart Disease Dataset} and a \textbf{Decision Tree Classifier}.
+  * Class Distribution & Age KDE
+  * Correlation Heatmap
+  * ROC Curve & Confusion Matrix
+  * Feature Importance
+* 🩺 Risk prediction with confidence score
+* 📈 Model performance metrics (Accuracy & ROC-AUC)
 
-\section*{App Features}
-\begin{itemize}
-    \item Decision Tree classifier with tuned hyperparameters
-    \item Auto-downloads dataset via \texttt{ucimlrepo}
-    \item Patient input form with 13 medical features
-    \item 4-tab EDA dashboard:
-    \begin{itemize}
-        \item Class Distribution \& Age KDE
-        \item Correlation Heatmap
-        \item ROC Curve \& Confusion Matrix
-        \item Feature Importance Chart
-    \end{itemize}
-    \item Risk prediction with confidence percentage
-    \item ROC-AUC score and model accuracy displayed
-\end{itemize}
+---
 
-\section*{Project Structure}
-\begin{verbatim}
+## 📁 Project Structure
+
+```
 heart-disease-prediction/
 │
 ├── train_model.py
@@ -49,76 +36,129 @@ heart-disease-prediction/
 ├── feature_importance.png
 ├── requirements.txt
 └── README.md
-\end{verbatim}
+```
 
-\section*{Dataset}
-\begin{itemize}
-    \item Name: Heart Disease UCI Dataset
-    \item Source: \url{https://archive.ics.uci.edu/dataset/45/heart+disease}
-    \item Samples: 303 patients
-    \item Features: 13 medical attributes
-    \item Target: 0 = No Disease, 1 = Disease
-\end{itemize}
+---
 
-\subsection*{Features Explained}
+## 📊 Dataset
 
-\begin{longtable}{|p{3cm}|p{10cm}|}
-\hline
-\textbf{Feature} & \textbf{Description} \\
-\hline
-age & Age in years \\
-sex & Sex (1 = Male, 0 = Female) \\
-cp & Chest pain type (0--3) \\
-trestbps & Resting blood pressure (mm Hg) \\
-chol & Serum cholesterol (mg/dl) \\
-fbs & Fasting blood sugar > 120 mg/dl \\
-restecg & Resting ECG results (0--2) \\
-thalach & Maximum heart rate achieved \\
-exang & Exercise induced angina \\
-oldpeak & ST depression induced by exercise \\
-slope & Slope of peak exercise ST segment \\
-ca & Number of major vessels (0--3) \\
-thal & Thalassemia type \\
-\hline
-\end{longtable}
+* **Name:** UCI Heart Disease Dataset
+* **Source:** UCI Machine Learning Repository (via `ucimlrepo`)
+* **Samples:** 303
+* **Features:** 13
+* **Target:**
 
-\section*{Model}
-\begin{itemize}
-    \item Algorithm: Decision Tree Classifier
-    \item Max Depth: 5
-    \item Min Samples Split: 10
-    \item Preprocessing: StandardScaler
-    \item Train/Test Split: 80\% / 20\%
-    \item Evaluation: Accuracy, ROC-AUC, Confusion Matrix
-\end{itemize}
+  * `0` → No Disease
+  * `1` → Disease
 
-\section*{Getting Started}
+---
 
-\subsection*{Clone Repository}
-\begin{verbatim}
+## 🧾 Features Description
+
+| Feature  | Description                       |
+| -------- | --------------------------------- |
+| age      | Age in years                      |
+| sex      | Sex (1 = Male, 0 = Female)        |
+| cp       | Chest pain type (0–3)             |
+| trestbps | Resting blood pressure (mm Hg)    |
+| chol     | Serum cholesterol (mg/dl)         |
+| fbs      | Fasting blood sugar > 120 mg/dl   |
+| restecg  | Resting ECG results (0–2)         |
+| thalach  | Maximum heart rate achieved       |
+| exang    | Exercise induced angina           |
+| oldpeak  | ST depression induced by exercise |
+| slope    | Slope of peak exercise ST segment |
+| ca       | Number of major vessels (0–3)     |
+| thal     | Thalassemia type                  |
+
+---
+
+## 🤖 Model Details
+
+* **Algorithm:** Decision Tree Classifier
+* **Max Depth:** 5
+* **Min Samples Split:** 10
+* **Preprocessing:** StandardScaler
+* **Train/Test Split:** 80/20 (stratified)
+
+### Evaluation Metrics:
+
+* Accuracy
+* ROC-AUC Score
+* Confusion Matrix
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone Repository
+
+```
 git clone https://github.com/YOUR_USERNAME/heart-disease-prediction.git
 cd heart-disease-prediction
-\end{verbatim}
+```
 
-\subsection*{Install Dependencies}
-\begin{verbatim}
+### 2. Install Dependencies
+
+```
 pip install -r requirements.txt
-\end{verbatim}
+```
 
-\subsection*{Train Model}
-\begin{verbatim}
+### 3. Train Model
+
+```
 python train_model.py
-\end{verbatim}
+```
 
-\subsection*{Run App}
-\begin{verbatim}
-python -m streamlit run app.py
-\end{verbatim}
+### Expected Output:
 
-Open: \texttt{http://localhost:8501}
+```
+Dataset downloaded successfully
+Model trained successfully
 
-\section*{Requirements}
-\begin{verbatim}
+Accuracy : ~82%
+ROC-AUC  : ~0.88
+
+Model and scaler saved
+```
+
+### 4. Run Application
+
+```
+streamlit run app.py
+```
+
+Open in browser:
+
+```
+http://localhost:8501
+```
+
+---
+
+## 🛠️ Workflow
+
+```
+Data Collection (UCI API)
+        ↓
+Data Cleaning
+        ↓
+EDA & Visualization
+        ↓
+Feature Scaling
+        ↓
+Model Training (Decision Tree)
+        ↓
+Evaluation (ROC, Accuracy, CM)
+        ↓
+Deployment (Streamlit)
+```
+
+---
+
+## 📦 Requirements
+
+```
 numpy
 pandas
 scikit-learn
@@ -126,33 +166,4 @@ streamlit
 matplotlib
 seaborn
 ucimlrepo
-\end{verbatim}
-
-\section*{Workflow}
-\begin{verbatim}
-UCI Repository API
-        ↓
-Raw Data
-        ↓
-Data Cleaning
-        ↓
-Feature Engineering + EDA
-        ↓
-StandardScaler
-        ↓
-Decision Tree Model
-        ↓
-Prediction + Evaluation
-\end{verbatim}
-
-\section*{Disclaimer}
-This project is for educational purposes only. It is not a substitute for professional medical advice.
-
-\section*{Author}
-Your Name \\
-GitHub: \url{https://github.com/YOUR_USERNAME}
-
-\section*{License}
-MIT License
-
-\end{document}
+```
